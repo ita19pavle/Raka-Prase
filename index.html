@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Raka Prase</title>
+        <link rel="icon" href="accessible_forward-24px.svg">
+
+        <style>
+        
+   body {
+       overflow: hidden;
+       
+   }
+    .container {
+        position: relative;
+    }
+    .parna {
+      background: linear-gradient( #019C0D, #0574CB , #7C0CA9 , gold);
+      /*background: green;*/
+        animation: rotacija1 5s linear infinite reverse;
+    }
+    .neparna {
+       background: linear-gradient( gold, #7C0CA9 , #0574CB , #019C0D);
+        /*background: blue;*/
+        animation: rotacija2 5s linear infinite normal;
+    }
+    .krug {
+        border-radius: 100%;
+        position: absolute;
+        text-align: center;
+        margin: auto;
+    }
+    .prvi {
+        background: url('raka-prase.jpg')!important;
+        animation: animacija1 5s linear infinite normal;
+    }
+   @keyframes rotacija1 {
+    0% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotacija2 {
+    0% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes animacija1 {
+    0% {
+        transform: scale(0);
+       
+       
+    }
+    100% {
+        transform: scale(1);
+       
+    }
+  
+}
+        </style>
+        
+    </head>
+    <body>
+        <div class="container" id="container"></div>
+            <script>
+                var container = document.querySelector('#container');
+                for (var i=100; i>10; i--) {
+                    var circle = document.createElement('div');
+                    
+                    circle.style.height=i*20+'px';
+                    circle.style.width=i*20+'px';
+                    circle.style.top=300-i*10+'px';
+                    circle.style.left=300-i*10+'px';
+                    circle.style.right=300-i*10+'px';
+                    circle.classList.add('krug');
+                        
+                            if (i%2===0) {
+                            circle.classList.add('parna');
+                        } else {
+                            circle.classList.add('neparna');
+                        }
+                        if (i===11) {
+                            circle.classList.remove('neparna');
+                            circle.classList.add('prvi');
+                            
+                        }
+                    container.appendChild(circle);
+                }
+            </script>
+    </body>
+</html>
